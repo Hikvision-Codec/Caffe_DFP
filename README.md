@@ -91,6 +91,7 @@ To test with GPU:
 #### 2.2.1 Caffe Installation:
 Please refer to http://caffe.berkeleyvision.org/installation.html
 
+Note that BLAS library has large impacts on testing time. The BLAS library we used in JVET-I0022 is OpenBLAS 0.2.18 and cuDNN 5.1.10.
 #### 2.2.2 Source code modification:
 The following gives the baseline caffe we used:
 
@@ -100,7 +101,12 @@ The following gives the baseline caffe we used:
 
 By comparing it with Caffe-DFP, one can obtain the difference. One can migrate the difference to any caffe installed.
 
-#### 2.2.3 Compilation:
+#### 2.2.3 Configuration:
+In Caffe, the tools one used can be configured via editing CMakeList.txt, Makefile, or options in using cmake command. To obtain similar running time, pay attention to the following connfiguration.
+* Configure CPU_ONLY: turn it on when you test with CPU; turn it off when you test with GPU;
+* Configure BLAS library to OpenBLAS if one want to obtain similar time with JVET-I0022. 
+
+#### 2.2.4 Compilation:
 Please refer to http://caffe.berkeleyvision.org/installation.html#compilation
 
 ## 3. Licence
