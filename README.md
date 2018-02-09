@@ -115,12 +115,6 @@ By comparing it with Caffe-DFP, one can obtain the difference. One can migrate t
 In Caffe, the tools one used can be configured via editing CMakeList.txt, Makefile, or options in using cmake command. To obtain similar running time, pay attention to the following connfiguration.
 * Configure CPU_ONLY: turn it on when you test with CPU; turn it off when you test with GPU;
 * Configure BLAS library to OpenBLAS if one want to obtain similar time with JVET-I0022. 
-* Turn off option "BUILD_python"
-* Turn off option "BUILD_matlab"
-* Turn off option "BUILD_python_layer"
-* Turn off option "USE_OPENCV"
-* Turn off option "USE_LEVELDB"
-* Turn off option "USE_LMDB"
 
 #### 2.2.4 Compilation:
 * Linux : http://caffe.berkeleyvision.org/installation.html#compilation
