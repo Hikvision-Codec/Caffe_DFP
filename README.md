@@ -107,7 +107,7 @@ In Caffe, the tools one used can be configured via editing CMakeList.txt, Makefi
 * Configure BLAS library to OpenBLAS if one want to obtain similar time with JVET-I0022. 
 
 #### 2.2.4 Compilation:
-Please refer to http://caffe.berkeleyvision.org/installation.html#compilation
-
+* Linux : http://caffe.berkeleyvision.org/installation.html#compilation
+* Windows: https://github.com/BVLC/caffe/tree/windows
 ## 3. Licence
 Caffe, Ristretto and Caffe-DFP is released under the BSD 2-Clause license. The BAIR/BVLC reference models are released for unrestricted use.
