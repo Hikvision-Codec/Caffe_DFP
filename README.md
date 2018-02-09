@@ -1,7 +1,7 @@
 # caffe-DFP
 This is Caffe-DFP used in JVET-I0022(http://phenix.it-sudparis.eu/jvet/) for network inference, which is modified based on Ristretto (https://github.com/pmgysel/caffe) and Caffe (https://github.com/BVLC/caffe)
 ## 1. Requirements
-The fllowing third-party dependency is necessary：
+The following third-party dependencies are necessary：
 * OpenBLAS, version:0.2.18
 * protobuf
 * gflags
@@ -16,7 +16,7 @@ To test with GPU:
 ## 2. Installation and compilation
 ### 2.1 Linux Users:
 #### 2.1.1 Installation:
-1) Install OpenBLAS, version:0.2.18, url:
+1) Install OpenBLAS, version:0.2.18
 
    * Download: https://github.com/xianyi/OpenBLAS/releases
    * Compile and Installation: https://github.com/xianyi/OpenBLAS
@@ -25,7 +25,7 @@ To test with GPU:
    *  CUDA 8.0, https://developer.nvidia.com/cuda-toolkit-archive
    *  CUDNN, https://developer.nvidia.com/rdp/cudnn-archive
    
-3) Install third-party dependency
+3) Install third-party dependencies
 
    The following provides two ways to install the dependency:
   
@@ -64,20 +64,27 @@ To test with GPU:
 #### 2.1.2 Compilation:
 * CPU for test:
 
-  ``
+  ```
   cd caffe-DFP
+  
   mkdir build
+  
   cd build
-  cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=ON -DBLAS=Open
-  ``
+  
+  cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=ON -DBLAS=Open ..
+  ```
 * GPU for test:
 
-  ``
+  ```
   cd caffe-DFP
+  
   mkdir build
+  
   cd build
-  cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=OFF -DBLAS=Open
-  ``
+  
+  cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=OFF -DBLAS=Open ..
+ 
+  ```
 ### 2.2 Other users:
 #### 2.2.1 Caffe Installation:
 Please refer to http://caffe.berkeleyvision.org/installation.html
@@ -93,3 +100,6 @@ By comparing it with Caffe-DFP, one can obtain the difference. One can migrate t
 
 #### 2.2.3 Compilation:
 Please refer to http://caffe.berkeleyvision.org/installation.html#compilation
+
+## 3. Licence
+Caffe, Ristretto and Caffe-DFP is released under the BSD 2-Clause license. The BAIR/BVLC reference models are released for unrestricted use.
