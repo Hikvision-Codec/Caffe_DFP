@@ -47,7 +47,7 @@ To test with GPU:
         
     *   Install from source code : 
     
-        If you have a much higher version of GCC, you need to install the above required libraries from source code. Install from 
+        If you have a much higher version of GCC, you need to install the above required libraries from source code or refer to Section 2.2. Install from 
         binaries may lead to error due to compatibility.
       
         * protobuf
