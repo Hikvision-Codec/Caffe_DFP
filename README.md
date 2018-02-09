@@ -1,4 +1,5 @@
 # caffe-DFP
+This is Caffe-DFP used in JVET-I0022(http://phenix.it-sudparis.eu/jvet/) for network inference, which is modified based on Ristretto (https://github.com/pmgysel/caffe) and Caffe (https://github.com/BVLC/caffe)
 ## 1. Introduction
 The fllowing third-party dependency is necessary：
 * OpenBLAS, version:0.2.18
