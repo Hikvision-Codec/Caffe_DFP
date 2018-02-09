@@ -65,7 +65,7 @@ To test with GPU:
           * Installation: https://github.com/boostorg/boost/blob/master/INSTALL
 
 #### 2.1.2 Compilation:
-* CPU for test:
+* For testing with CPU:
 
   ```
   cd caffe-DFP
@@ -76,7 +76,7 @@ To test with GPU:
   
   cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=ON -DBLAS=Open ..
   ```
-* GPU for test:
+* For testing with GPU:
 
   ```
   cd caffe-DFP
