@@ -28,9 +28,11 @@ To test with GPU:
 3) Install third-party dependencies
 
    The following provides two ways to install the dependency:
-  
-    *   Install from binary:
    
+   *   Install from binary
+    
+        This way is easy, but may fail to be run when compiled JVET-I0022 with higher version GCC.
+    
         * CENTOS (Test pass with gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)):
       
           ``sudo yum install protobuf-devel gflags-devel glog-devel boost-devel hdf5-devel``
@@ -43,7 +45,7 @@ To test with GPU:
           
           Please refer to http://caffe.berkeleyvision.org/installation.html
         
-    *   Install from source code: 
+    *   Install from source code : 
     
         If you have a much higher version of GCC, you need to install the above required libraries from source code. Install from 
         binaries will lead to running error due to compatibility.
