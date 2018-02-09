@@ -1,6 +1,6 @@
 # caffe-DFP
 This is Caffe-DFP used in JVET-I0022(http://phenix.it-sudparis.eu/jvet/) for network inference, which is modified based on Ristretto (https://github.com/pmgysel/caffe) and Caffe (https://github.com/BVLC/caffe)
-## 1. Introduction
+## 1. Requirements
 The fllowing third-party dependency is necessary：
 * OpenBLAS, version:0.2.18
 * protobuf
@@ -22,8 +22,8 @@ To test with GPU:
    * Compile and Installation: https://github.com/xianyi/OpenBLAS
    
 2) If one want to test with GPU, you need to install
-   *  CUDA 8.0(https://developer.nvidia.com/cuda-toolkit-archive)
-   *  CUDNN (https://developer.nvidia.com/rdp/cudnn-archive)
+   *  CUDA 8.0, https://developer.nvidia.com/cuda-toolkit-archive
+   *  CUDNN, https://developer.nvidia.com/rdp/cudnn-archive
    
 3) Install third-party dependency
 
