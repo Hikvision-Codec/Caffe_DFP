@@ -31,7 +31,7 @@ To test with GPU:
    
    *   Install from binary
     
-        This way is easy, but may fail to be run when compiled JVET-I0022 with higher version GCC.
+        This way is easy, but may fail when compiled JVET-I0022 with higher version GCC.
     
         * CENTOS (Test pass with gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)):
       
@@ -48,7 +48,7 @@ To test with GPU:
     *   Install from source code : 
     
         If you have a much higher version of GCC, you need to install the above required libraries from source code. Install from 
-        binaries will lead to running error due to compatibility.
+        binaries may lead to error due to compatibility.
       
         * protobuf
           * Download：https://github.com/google/protobuf
