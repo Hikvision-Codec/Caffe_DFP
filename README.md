@@ -65,7 +65,7 @@ To test with GPU:
           * Installation: https://github.com/boostorg/boost/blob/master/INSTALL
 
 #### 2.2.2 Configuration:
-Eidting CMakeList.txt
+Editing CMakeList.txt
 * Set option "BUILD_python" to OFF
 * Set option "BUILD_matlab" to OFF
 * Set option "BUILD_python_layer" to OFF
