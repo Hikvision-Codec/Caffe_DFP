@@ -63,7 +63,9 @@ To test with GPU:
         * boost
           * Download: https://github.com/boostorg/boost
           * Installation: https://github.com/boostorg/boost/blob/master/INSTALL
-
+        * hdf5
+          * Download: https://www.hdfgroup.org/downloads/hdf5/
+          * Installation: section "Support" in https://www.hdfgroup.org/downloads/hdf5/          
 #### 2.2.2 Configuration:
 Editing CMakeList.txt
 * Set option "BUILD_python" to OFF
