@@ -43,7 +43,7 @@ To test with GPU:
         
         * Others:
           
-          Please refer to http://caffe.berkeleyvision.org/installation.html
+          Please refer to Section 2.2.
         
     *   Install from source code : 
     
@@ -91,7 +91,7 @@ To test with GPU:
 #### 2.2.1 Caffe Installation:
 Please refer to http://caffe.berkeleyvision.org/installation.html
 
-#### 2.2.2 Source code:
+#### 2.2.2 Source code modification:
 The following gives the baseline caffe we used:
 
 ``
