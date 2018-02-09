@@ -64,7 +64,16 @@ To test with GPU:
           * Download: https://github.com/boostorg/boost
           * Installation: https://github.com/boostorg/boost/blob/master/INSTALL
 
-#### 2.1.2 Compilation:
+#### 2.2.2 Configuration:
+Eidting CMakeList.txt
+* Set option "BUILD_python" to OFF
+* Set option "BUILD_matlab" to OFF
+* Set option "BUILD_python_layer" to OFF
+* Set option "USE_OPENCV" to OFF
+* Set option "USE_LEVELDB" to OFF
+* Set option "USE_LMDB" to OFF
+
+#### 2.1.3 Compilation:
 * For testing with CPU:
 
   ```
@@ -106,6 +115,12 @@ By comparing it with Caffe-DFP, one can obtain the difference. One can migrate t
 In Caffe, the tools one used can be configured via editing CMakeList.txt, Makefile, or options in using cmake command. To obtain similar running time, pay attention to the following connfiguration.
 * Configure CPU_ONLY: turn it on when you test with CPU; turn it off when you test with GPU;
 * Configure BLAS library to OpenBLAS if one want to obtain similar time with JVET-I0022. 
+* Turn off option "BUILD_python"
+* Turn off option "BUILD_matlab"
+* Turn off option "BUILD_python_layer"
+* Turn off option "USE_OPENCV"
+* Turn off option "USE_LEVELDB"
+* Turn off option "USE_LMDB"
 
 #### 2.2.4 Compilation:
 * Linux : http://caffe.berkeleyvision.org/installation.html#compilation
