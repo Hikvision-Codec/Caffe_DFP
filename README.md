@@ -130,4 +130,4 @@ export OMP_NUM_THREADS=1
 ## 4. Licence
 Caffe, Ristretto and Caffe-DFP is released under the BSD 2-Clause license. The BAIR/BVLC reference models are released for unrestricted use.
 
-If you have any questions or bugs reports, please do not hesitate to contact songxiaodan@hikvision.com.
+If you have any questions or bug reports, please do not hesitate to contact songxiaodan@hikvision.com.
