@@ -116,7 +116,7 @@ To obtain similar running time, pay attention to the following configuration. Th
 #### 2.2.4 Compilation:
 * Linux : http://caffe.berkeleyvision.org/installation.html#compilation
 * Windows: https://github.com/BVLC/caffe/tree/windows
-## 3. Notice on testing
+## 3. Test
 If one want to obtain similar running time with JVET-I0022, ensure single thread is used for OpenBLAS during testing with CPU. The following gives example for Linux users
 ```
 #execute the command in a terminal before testing
