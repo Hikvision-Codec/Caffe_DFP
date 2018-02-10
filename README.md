@@ -109,7 +109,7 @@ The baseline caffe we used: https://github.com/Hikvision-Codec/Caffe_DFP/tree/Ca
 By comparing it with Caffe-DFP, one can obtain the difference. After that, one can migrate the difference to any caffe installed.
 
 #### 2.2.3 Configuration:
-To obtain similar running time, pay attention to the following configuration via editing CMakeList.txt, Makefile, or options in using cmake command:
+To obtain similar running time, pay attention to the following configuration. They can be modified via editing CMakeList.txt, Makefile, or options in using cmake command:
 * Configure CPU_ONLY: turn it on when you test with CPU; turn it off when you test with GPU;
 * Configure BLAS library to OpenBLAS if one want to obtain similar time with JVET-I0022. 
 
