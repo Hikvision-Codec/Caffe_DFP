@@ -116,5 +116,16 @@ To obtain similar running time, pay attention to the following configuration. Th
 #### 2.2.4 Compilation:
 * Linux : http://caffe.berkeleyvision.org/installation.html#compilation
 * Windows: https://github.com/BVLC/caffe/tree/windows
-## 3. Licence
+## 3. Notice on testing
+If one want to obtain similar running time with JVET-I0022, ensure single thread is used for OpenBLAS during testing with CPU. The following gives example for Linux users
+```
+#execute the command in a terminal before testing
+
+export OPENBLAS_NUM_THREADS=1
+
+export GOTO_NUM_THREADS=1
+
+export OMP_NUM_THREADS=1
+```
+## 4. Licence
 Caffe, Ristretto and Caffe-DFP is released under the BSD 2-Clause license. The BAIR/BVLC reference models are released for unrestricted use.
