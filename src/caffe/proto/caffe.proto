@@ -9,8 +9,8 @@ message BlobShape {
 
 message BlobProto {
   optional BlobShape shape = 7;
-  repeated sint32 data = 5 [packed = true];
-  repeated sint32 diff = 6 [packed = true];
+  repeated float data = 5 [packed = true];
+  repeated float diff = 6 [packed = true];
   repeated double double_data = 8 [packed = true];
   repeated double double_diff = 9 [packed = true];
 
@@ -43,14 +43,14 @@ message Datum {
 message FillerParameter {
   // The filler type.
   optional string type = 1 [default = 'constant'];
-  optional sint32 value = 2 [default = 0]; // the value in constant filler
-  optional sint32 min = 3 [default = -127]; // the min value in uniform filler
-  optional sint32 max = 4 [default = 127]; // the max value in uniform filler
-  optional sint32 mean = 5 [default = 0]; // the mean value in Gaussian filler
-  optional sint32 std = 6 [default = 1]; // the std value in Gaussian filler
+  optional float value = 2 [default = 0]; // the value in constant filler
+  optional float min = 3 [default = 0]; // the min value in uniform filler
+  optional float max = 4 [default = 1]; // the max value in uniform filler
+  optional float mean = 5 [default = 0]; // the mean value in Gaussian filler
+  optional float std = 6 [default = 1]; // the std value in Gaussian filler
   // The expected number of non-zero output weights for a given input in
   // Gaussian filler -- the default -1 means don't perform sparsification.
-  optional sint32 sparse = 7 [default = -1];
+  optional int32 sparse = 7 [default = -1];
   // Normalize the filler variance by fan_in, fan_out, or their average.
   // Applies to 'xavier' and 'msra' fillers.
   enum VarianceNorm {
@@ -98,7 +98,7 @@ message NetParameter {
 // NOTE
 // Update the next available ID when you add a new SolverParameter field.
 //
-// SolverParameter next available ID: 42 (last added: layer_wise_reduce)
+// SolverParameter next available ID: 41 (last added: type)
 message SolverParameter {
   //////////////////////////////////////////////////////////////////////////////
   // Specifying the train and test networks
@@ -239,9 +239,6 @@ message SolverParameter {
   }
   // DEPRECATED: use type instead of solver_type
   optional SolverType solver_type = 30 [default = SGD];
-
-  // Overlap compute and communication for data parallel training
-  optional bool layer_wise_reduce = 41 [default = true];
 }
 
 // A message that stores the solver snapshots
@@ -406,22 +403,7 @@ message LayerParameter {
   optional ThresholdParameter threshold_param = 128;
   optional TileParameter tile_param = 138;
   optional WindowDataParameter window_data_param = 129;
-  
-  //quantization parameter
-  optional QuantizationParameter quantization_param = 1047;
 }
-
-// Message for layers with reduced word with arithmetic
-message QuantizationParameter{
-  // Dynamic fixed point word width
-  optional uint32 bw_layer_out = 4 [default = 32];
-  optional uint32 bw_params = 5 [default = 32];
-  optional int32 fl_layer_out = 7 [default = 16];
-  optional int32 fl_weights = 8 [default = 16];
-  optional int32 fl_biases = 10 [default = 16];
-  optional bool quanti_out = 9 [default = true];
-}
-
 
 // Message that stores parameters used to apply transformation
 // to the data layer's data
@@ -515,7 +497,6 @@ message ConcatParameter {
 
   // DEPRECATED: alias for "axis" -- does not support negative indexing.
   optional uint32 concat_dim = 1 [default = 1];
-  
 }
 
 message BatchNormParameter {
@@ -674,8 +655,8 @@ message DataParameter {
   optional bool mirror = 6 [default = false];
   // Force the encoded image to have 3 color channels
   optional bool force_encoded_color = 9 [default = false];
-  // Prefetch queue (Increase if data feeding bandwidth varies, within the
-  // limit of device memory for GPU training)
+  // Prefetch queue (Number of batches to prefetch to host memory, increase if
+  // data access bandwidth varies).
   optional uint32 prefetch = 10 [default = 4];
 }
 
@@ -714,7 +695,6 @@ message EltwiseParameter {
   // Whether to use an asymptotically slower (for >2 inputs) but stabler method
   // of computing the gradient for the PROD operation. (No effect for SUM op.)
   optional bool stable_prod_grad = 3 [default = true];
-  
 }
 
 // Message that stores parameters used by ELULayer

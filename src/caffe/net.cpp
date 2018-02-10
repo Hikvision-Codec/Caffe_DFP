@@ -781,9 +781,6 @@ void Net<Dtype>::CopyTrainedLayersFrom(const NetParameter& param) {
       const bool kReshape = false;
       target_blobs[j]->FromProto(source_layer.blobs(j), kReshape);
     }
-    
-    //post process parameters, including inverse quantization
-    layers_[target_layer_id]->post_process_params();
   }
 }
 

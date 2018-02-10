@@ -91,8 +91,6 @@ class Layer {
    */
   virtual void LayerSetUp(const vector<Blob<Dtype>*>& bottom,
       const vector<Blob<Dtype>*>& top) {}
-      
-  virtual void post_process_params(){};
 
   /**
    * @brief Whether a layer should be shared by multiple nets during data

@@ -1,125 +1,37 @@
-# caffe-DFP
-This is Caffe-DFP used in JVET-I0022(http://phenix.it-sudparis.eu/jvet/) for network inference, which is modified based on Ristretto (https://github.com/pmgysel/caffe) and Caffe (https://github.com/BVLC/caffe)
-## 1. Requirements
-The following third-party dependencies are necessary：
-* OpenBLAS, version:0.2.18
-* protobuf
-* gflags
-* glog
-* boost
-* hdf5
+# Caffe
 
-To test with GPU:
-* CUDA 8.0
-* CUDNN
+[![Build Status](https://travis-ci.org/BVLC/caffe.svg?branch=master)](https://travis-ci.org/BVLC/caffe)
+[![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE)
 
-## 2. Installation and compilation
-### 2.1 Linux Users:
-#### 2.1.1 Installation:
-1) Install OpenBLAS, version:0.2.18
+Caffe is a deep learning framework made with expression, speed, and modularity in mind.
+It is developed by the Berkeley Vision and Learning Center ([BVLC](http://bvlc.eecs.berkeley.edu)) and community contributors.
 
-   * Download: https://github.com/xianyi/OpenBLAS/releases
-   * Compile and Installation: https://github.com/xianyi/OpenBLAS
-   
-2) If one want to test with GPU, you need to install
-   *  CUDA 8.0, https://developer.nvidia.com/cuda-toolkit-archive
-   *  CUDNN, https://developer.nvidia.com/rdp/cudnn-archive
-   
-3) Install third-party dependencies
+Check out the [project site](http://caffe.berkeleyvision.org) for all the details like
 
-   The following provides two ways to install the dependency:
-   
-   *   Install from binary
-    
-        This way is easy, but may fail when compiled JVET-I0022 with higher version GCC. For higher versions, refer to "Install from 
-        source code" or Section 2.2.
-    
-        * CENTOS (Test pass with gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)):
-      
-          ``sudo yum install protobuf-devel gflags-devel glog-devel boost-devel hdf5-devel``
-     
-        * Ubuntu (Test pass with gcc (Ubuntu 4.8.4-2ubuntu1~14.04.3) 4.8.4):
-      
-          ``sudo apt-get install protobuf-devel gflags-devel glog-devel boost-devel hdf5-devel``
-        
-        * Others:
-          
-          Please refer to Section 2.2.
-        
-    *   Install from source code : 
-    
-        If you have a much higher version of GCC, you need to install the above required libraries from source code or refer to Section 2.2. Install from 
-        binaries may lead to error due to compatibility.
-      
-        * protobuf
-          * Download：https://github.com/google/protobuf
-          * Installation：https://github.com/google/protobuf/blob/master/src/README.md
-        * gflags：
-          * Download：https://github.com/gflags/gflags
-          * Installation：https://github.com/gflags/gflags/blob/master/INSTALL.md
-        * glog：
-          * Download：https://github.com/google/glog
-          * Installation：https://github.com/google/glog/blob/master/INSTALL
-        * boost
-          * Download: https://github.com/boostorg/boost
-          * Installation: https://github.com/boostorg/boost/blob/master/INSTALL
-        * hdf5
-          * Download: https://www.hdfgroup.org/downloads/hdf5/
-          * Installation: section "Support" in https://www.hdfgroup.org/downloads/hdf5/          
-#### 2.2.2 Configuration:
-Editing CMakeList.txt
-* Set option "BUILD_python" to OFF
-* Set option "BUILD_matlab" to OFF
-* Set option "BUILD_python_layer" to OFF
-* Set option "USE_OPENCV" to OFF
-* Set option "USE_LEVELDB" to OFF
-* Set option "USE_LMDB" to OFF
+- [DIY Deep Learning for Vision with Caffe](https://docs.google.com/presentation/d/1UeKXVgRvvxg9OUdh_UiC5G71UMscNPlvArsWER41PsU/edit#slide=id.p)
+- [Tutorial Documentation](http://caffe.berkeleyvision.org/tutorial/)
+- [BVLC reference models](http://caffe.berkeleyvision.org/model_zoo.html) and the [community model zoo](https://github.com/BVLC/caffe/wiki/Model-Zoo)
+- [Installation instructions](http://caffe.berkeleyvision.org/installation.html)
 
-#### 2.1.3 Compilation:
-* For testing with CPU:
+and step-by-step examples.
 
-  ```
-  cd caffe-DFP
-  
-  mkdir build
-  
-  cd build
-  
-  cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=ON -DBLAS=Open ..
-  ```
-* For testing with GPU:
+[![Join the chat at https://gitter.im/BVLC/caffe](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/BVLC/caffe?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-  ```
-  cd caffe-DFP
-  
-  mkdir build
-  
-  cd build
-  
-  cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=OFF -DBLAS=Open ..
- 
-  ```
-### 2.2 Other users:
-#### 2.2.1 Caffe Installation:
-Please refer to http://caffe.berkeleyvision.org/installation.html
+Please join the [caffe-users group](https://groups.google.com/forum/#!forum/caffe-users) or [gitter chat](https://gitter.im/BVLC/caffe) to ask questions and talk about methods and models.
+Framework development discussions and thorough bug reports are collected on [Issues](https://github.com/BVLC/caffe/issues).
 
-Note that BLAS library has large impacts on testing time. The BLAS library we used in JVET-I0022 is OpenBLAS 0.2.18 and cuDNN 5.1.10.
-#### 2.2.2 Source code modification:
-The following gives the baseline caffe we used:
+Happy brewing!
 
-``
-#to be added
-``
+## License and Citation
 
-By comparing it with Caffe-DFP, one can obtain the difference. One can migrate the difference to any caffe installed.
+Caffe is released under the [BSD 2-Clause license](https://github.com/BVLC/caffe/blob/master/LICENSE).
+The BVLC reference models are released for unrestricted use.
 
-#### 2.2.3 Configuration:
-In Caffe, the tools one used can be configured via editing CMakeList.txt, Makefile, or options in using cmake command. To obtain similar running time, pay attention to the following connfiguration.
-* Configure CPU_ONLY: turn it on when you test with CPU; turn it off when you test with GPU;
-* Configure BLAS library to OpenBLAS if one want to obtain similar time with JVET-I0022. 
+Please cite Caffe in your publications if it helps your research:
 
-#### 2.2.4 Compilation:
-* Linux : http://caffe.berkeleyvision.org/installation.html#compilation
-* Windows: https://github.com/BVLC/caffe/tree/windows
-## 3. Licence
-Caffe, Ristretto and Caffe-DFP is released under the BSD 2-Clause license. The BAIR/BVLC reference models are released for unrestricted use.
+    @article{jia2014caffe,
+      Author = {Jia, Yangqing and Shelhamer, Evan and Donahue, Jeff and Karayev, Sergey and Long, Jonathan and Girshick, Ross and Guadarrama, Sergio and Darrell, Trevor},
+      Journal = {arXiv preprint arXiv:1408.5093},
+      Title = {Caffe: Convolutional Architecture for Fast Feature Embedding},
+      Year = {2014}
+    }

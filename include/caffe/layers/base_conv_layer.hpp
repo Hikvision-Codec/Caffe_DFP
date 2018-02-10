@@ -93,12 +93,6 @@ class BaseConvolutionLayer : public Layer<Dtype> {
   bool is_1x1_;
   bool force_nd_im2col_;
 
-#ifndef ZHOULULU_MDF
-  int conv_out_channels_;
-  int conv_in_channels_;
-  int kernel_dim_;
-#endif
-
  private:
   // wrap im2col/col2im so we don't have to remember the (long) argument lists
   inline void conv_im2col_cpu(const Dtype* data, Dtype* col_buff) {
@@ -164,12 +158,10 @@ class BaseConvolutionLayer : public Layer<Dtype> {
 
   int num_kernels_im2col_;
   int num_kernels_col2im_;
-#if ZHOULULU_MDF
   int conv_out_channels_;
   int conv_in_channels_;
+  int conv_out_spatial_dim_;
   int kernel_dim_;
-#endif
-  int conv_out_spatial_dim_;  
   int col_offset_;
   int output_offset_;
 
