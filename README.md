@@ -67,12 +67,12 @@ To test with GPU:
           * Installation: section "Support" in https://www.hdfgroup.org/downloads/hdf5/          
 #### 2.1.2 Configuration:
 Editing CMakeList.txt
-* Set option "BUILD_python" to OFF, if you do not have python installed
-* Set option "BUILD_matlab" to OFF, if you do not have matlabb installed
-* Set option "BUILD_python_layer" to OFF, if you do not have python installed or you do not want to build a neural network with python
-* Set option "USE_OPENCV" to OFF, if you do not have OPENCV installed
-* Set option "USE_LEVELDB" to OFF, if you do not have LEVELDB installed
-* Set option "USE_LMDB" to OFF, if you do not have LMDB installed
+* Set option "BUILD_python" to OFF, if you do not have python installed.
+* Set option "BUILD_matlab" to OFF, if you do not have matlabb installed.
+* Set option "BUILD_python_layer" to OFF, if you do not have python installed or you do not want to build a neural network with python.
+* Set option "USE_OPENCV" to OFF, if you do not have OPENCV installed.
+* Set option "USE_LEVELDB" to OFF, if you do not have LEVELDB installed.
+* Set option "USE_LMDB" to OFF, if you do not have LMDB installed.
 
 #### 2.1.3 Compilation:
 * For testing with CPU:
