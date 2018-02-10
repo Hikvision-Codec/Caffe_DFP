@@ -109,15 +109,15 @@ The baseline caffe we used: https://github.com/Hikvision-Codec/Caffe_DFP/tree/Ca
 By comparing it with Caffe-DFP, one can obtain the difference. After that, one can migrate the difference to any caffe installed.
 
 #### 2.2.3 Configuration:
-To obtain similar running time, pay attention to the following configuration. They can be modified via editing CMakeList.txt, Makefile, or options in using cmake command:
+The following tools are necessary to be configured via editing CMakeList.txt, Makefile, or options in using cmake command:
 * Configure CPU_ONLY: turn it on when you test with CPU; turn it off when you test with GPU.
-* Configure BLAS library to OpenBLAS if one want to obtain similar time with JVET-I0022. 
+* Configure BLAS library to OpenBLAS since BLAS libraries have large impact on testing time 
 
 #### 2.2.4 Compilation:
 * Linux : http://caffe.berkeleyvision.org/installation.html#compilation
 * Windows: https://github.com/BVLC/caffe/tree/windows
-## 3. Test
-If one want to obtain similar running time with JVET-I0022, ensure single thread is used for OpenBLAS during testing with CPU. The following gives an example for Linux users
+## 3. Sinle Thread Testing with CPU
+For fair comparison with JEM, ensure single thread is used for OpenBLAS during testing with CPU. The following gives an example for Linux users
 ```
 #execute the command in a terminal before testing
 
