@@ -66,7 +66,7 @@ To test with GPU:
         * hdf5
           * Download: https://www.hdfgroup.org/downloads/hdf5/
           * Installation: section "Support" in https://www.hdfgroup.org/downloads/hdf5/          
-#### 2.2.2 Configuration:
+#### 2.1.2 Configuration:
 Editing CMakeList.txt
 * Set option "BUILD_python" to OFF
 * Set option "BUILD_matlab" to OFF
