@@ -15,7 +15,7 @@ To test with GPU:
 
 ## 2. Installation and compilation
 ### 2.1 Linux Users:
-#### 2.1.1 Installation:
+#### 2.1.1 Dependency installation:
 1) Install OpenBLAS, version:0.2.18
 
    * Download: https://github.com/xianyi/OpenBLAS/releases
@@ -48,8 +48,7 @@ To test with GPU:
         
     *   Install from source code : 
     
-        If you have a much higher version of GCC, you need to install the above required libraries from source code or refer to Section 2.2. Install from 
-        binaries may lead to error due to compatibility.
+        If you have a much higher version of GCC, you need to install the above required libraries from source code or refer to Section 2.2. Install from binaries may lead to error due to compatibility.
       
         * protobuf
           * Download：https://github.com/google/protobuf
@@ -68,12 +67,12 @@ To test with GPU:
           * Installation: section "Support" in https://www.hdfgroup.org/downloads/hdf5/          
 #### 2.1.2 Configuration:
 Editing CMakeList.txt
-* Set option "BUILD_python" to OFF
-* Set option "BUILD_matlab" to OFF
-* Set option "BUILD_python_layer" to OFF
-* Set option "USE_OPENCV" to OFF
-* Set option "USE_LEVELDB" to OFF
-* Set option "USE_LMDB" to OFF
+* Set option "BUILD_python" to OFF, if you do not have python installed
+* Set option "BUILD_matlab" to OFF, if you do not have matlabb installed
+* Set option "BUILD_python_layer" to OFF, if you do not have python installed or you do not want to build a neural network with python
+* Set option "USE_OPENCV" to OFF, if you do not have OPENCV installed
+* Set option "USE_LEVELDB" to OFF, if you do not have LEVELDB installed
+* Set option "USE_LMDB" to OFF, if you do not have LMDB installed
 
 #### 2.1.3 Compilation:
 * For testing with CPU:
@@ -100,7 +99,7 @@ Editing CMakeList.txt
  
   ```
 ### 2.2 Other users:
-#### 2.2.1 Caffe Installation:
+#### 2.2.1 Dependency installation:
 Please refer to http://caffe.berkeleyvision.org/installation.html
 
 Note that BLAS library has large impacts on testing time. The BLAS library we used in JVET-I0022 is OpenBLAS 0.2.18 and cuDNN 5.1.10.
@@ -110,7 +109,7 @@ The baseline caffe we used: https://github.com/Hikvision-Codec/Caffe_DFP/tree/Ca
 By comparing it with Caffe-DFP, one can obtain the difference. After that, one can migrate the difference to any caffe installed.
 
 #### 2.2.3 Configuration:
-In Caffe, the tools one used  can be configured via editing CMakeList.txt, Makefile, or options in using cmake command. To obtain similar running time, pay attention to the following connfiguration.
+To obtain similar running time, pay attention to the following configuration via editing CMakeList.txt, Makefile, or options in using cmake command:
 * Configure CPU_ONLY: turn it on when you test with CPU; turn it off when you test with GPU;
 * Configure BLAS library to OpenBLAS if one want to obtain similar time with JVET-I0022. 
 
