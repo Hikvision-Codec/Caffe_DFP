@@ -117,7 +117,7 @@ The following tools are necessary to be configured via editing CMakeList.txt, Ma
 * Linux : http://caffe.berkeleyvision.org/installation.html#compilation
 * Windows: https://github.com/BVLC/caffe/tree/windows
 ## 3. Testing with single thread on CPU
-For fair comparison with JEM, ensure single thread is used for OpenBLAS during testing with CPU. The following gives an example for Linux users
+For fair comparison with JEM, ensure single thread is used for OpenBLAS during testing with CPU. The following gives an example for Linux users：
 ```
 #execute the command in a terminal before testing
 
