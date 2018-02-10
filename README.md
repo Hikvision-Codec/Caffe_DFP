@@ -106,12 +106,9 @@ Please refer to http://caffe.berkeleyvision.org/installation.html
 Note that BLAS library has large impacts on testing time. The BLAS library we used in JVET-I0022 is OpenBLAS 0.2.18 and cuDNN 5.1.10.
 #### 2.2.2 Source code modification:
 The following gives the baseline caffe we used:
+https://github.com/Hikvision-Codec/Caffe_DFP/tree/Caffe_Baseline
 
-``
-#to be added
-``
-
-By comparing it with Caffe-DFP, one can obtain the difference. One can migrate the difference to any caffe installed.
+By comparing it with Caffe-DFP, one can obtain the difference. After that, one can migrate the difference to any caffe installed.
 
 #### 2.2.3 Configuration:
 In Caffe, the tools one used can be configured via editing CMakeList.txt, Makefile, or options in using cmake command. To obtain similar running time, pay attention to the following connfiguration.
