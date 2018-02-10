@@ -66,7 +66,7 @@ To test with GPU:
           * Download: https://www.hdfgroup.org/downloads/hdf5/
           * Installation: section "Support" in https://www.hdfgroup.org/downloads/hdf5/          
 #### 2.1.2 Configuration:
-Editing CMakeList.txt
+Editing CMakeList.txt:
 * Set option "BUILD_python" to OFF, if you do not have python installed.
 * Set option "BUILD_matlab" to OFF, if you do not have matlabb installed.
 * Set option "BUILD_python_layer" to OFF, if you do not have python installed or you do not want to build a neural network with python.
