@@ -31,7 +31,7 @@ To test with GPU:
    
    *   Install from binary
     
-        This way is easy, but may fail when compiled JVET-I0022 with higher version GCC. For higher versions, refer to "Install from 
+        This way is easy, but may fail when compile JVET-I0022 with higher version GCC. For higher versions, refer to "Install from 
         source code" or Section 2.2.
     
         * CENTOS (Test pass with gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)):
