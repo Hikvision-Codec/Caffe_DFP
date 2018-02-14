@@ -109,6 +109,8 @@ The baseline caffe we used: https://github.com/Hikvision-Codec/Caffe_DFP/tree/Ca
 By comparing it with Caffe-DFP, one can obtain the difference. After that, one can migrate the difference to any caffe installed.
 
 Note that in the above website of Caffe_Baseline, you can find a button named "compare". With it, one can directly observe the difference. Another way is that one can download Caffe_Baseline and Caffe_DFP. With the help of SVN, it is easy to find the difference.
+
+Besides, the modification is the same for both windows and linux users, since it is system indpendent.
 #### 2.2.3 Configuration:
 The following tools are necessary to be configured via editing CMakeList.txt, Makefile, or options in using cmake command:
 * Configure CPU_ONLY: turn it on when you test with CPU; turn it off when you test with GPU.
