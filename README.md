@@ -86,7 +86,7 @@ Editing CMakeList.txt:
   
   cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=ON -DBLAS=Open ..
   
-  #make -jX, in which X means how many cores one need to compile Caffe_DFP
+  #make -jX, in which X means how many cores are used to compile Caffe_DFP
   make -j8
   ```
 * For testing with GPU:
@@ -100,7 +100,7 @@ Editing CMakeList.txt:
   
   cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=OFF -DBLAS=Open ..
   
-  #make -jX, in which X means how many cores one need to compile Caffe_DFP
+  #make -jX, in which X means how many cores are used to compile Caffe_DFP
   make -j8
  
   ```
