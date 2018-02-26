@@ -23,7 +23,7 @@ To test with GPU:
    
 2) If one want to test with GPU, you need to install
    *  CUDA 8.0, https://developer.nvidia.com/cuda-toolkit-archive
-   *  CUDNN, https://developer.nvidia.com/rdp/cudnn-archive
+   *  CUDNN 5.1.10, https://developer.nvidia.com/rdp/cudnn-archive
    
 3) Install third-party dependencies
 
