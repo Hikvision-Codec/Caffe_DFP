@@ -3,11 +3,11 @@ This is Caffe-DFP used in JVET-I0022(http://phenix.it-sudparis.eu/jvet/) for net
 ## 1. Requirements
 The following third-party dependencies are necessary：
 * OpenBLAS, version:0.2.18
-* protobuf
-* gflags
-* glog
-* boost
-* hdf5
+* protobuf, version:2.5.0
+* gflags,   version:2.0
+* glog,     version:0.3.3
+* boost,    version:1.54.0
+* hdf5,     version:1.8.11
 
 To test with GPU:
 * CUDA 8.0
@@ -40,7 +40,9 @@ To test with GPU:
      
         * Ubuntu (Test pass with gcc (Ubuntu 4.8.4-2ubuntu1~14.04.3) 4.8.4):
       
-          ``sudo apt-get install protobuf-devel gflags-devel glog-devel boost-devel hdf5-devel``
+          ``sudo apt-get install libprotobuf-dev libgflags-dev libgoogle-glog-dev libhdf5-serial-dev ``
+          
+          ``sudo apt-get install --no-install-recommends libboost-all-dev ``
         
         * Others:
           
