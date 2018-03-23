@@ -11,7 +11,7 @@ The following third-party dependencies are necessary：
 
 To test with GPU:
 * CUDA 8.0
-* CUDNN
+* CUDNN, version 5.1.10
 
 ## 2. Installation and compilation
 ### 2.1 Linux Users:
