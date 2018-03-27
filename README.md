@@ -51,10 +51,6 @@ If CUDA is not installed Caffe will default to a CPU_ONLY build. If you have CUD
 
 CMake can be used to build a shared library instead of the default static library. To do so follow the above procedure and use `-DBUILD_SHARED_LIBS=ON`. Please note however, that some tests (more specifically the solver related tests) will fail since both the test executable and caffe library do not share static objects contained in the protobuf library.
 
-### Troubleshooting
-
-Should you encounter any error please post the output of the above commands by redirecting the output to a file and open a topic on the [caffe-users list](https://groups.google.com/forum/#!forum/caffe-users) mailing list.
-
 
 ## Further Details
 
