@@ -88,7 +88,7 @@ Editing CMakeList.txt:
   
   cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=ON -DBLAS=Open ..
   
-  #make -jX, in which X means how many cores are used to compile Caffe_DFP
+  ::make -jX, in which X means how many cores are used to compile Caffe_DFP
   make -j8
   ```
 * For testing with GPU:
@@ -102,16 +102,19 @@ Editing CMakeList.txt:
   
   cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=OFF -DBLAS=Open ..
   
-  #make -jX, in which X means how many cores are used to compile Caffe_DFP
+  ::make -jX, in which X means how many cores are used to compile Caffe_DFP
   make -j8
  
   ```
-### 2.2 Other users:
-#### 2.2.1 Dependency installation:
+### 2.2 Windows users:
+Please refer to https://github.com/Hikvision-Codec/Caffe_DFP/tree/Caffe_DFP_Windows. 
+
+### 2.3 Other users:
+#### 2.3.1 Dependency installation:
 Please refer to http://caffe.berkeleyvision.org/installation.html
 
 Note that BLAS library has large impacts on testing time. The BLAS library we used in JVET-I0022 is OpenBLAS 0.2.18 and cuDNN 5.1.10.
-#### 2.2.2 Source code modification:
+#### 2.3.2 Source code modification:
 The baseline caffe we used: https://github.com/Hikvision-Codec/Caffe_DFP/tree/Caffe_Baseline
 
 By comparing it with Caffe-DFP, one can obtain the difference. After that, one can migrate the difference to any caffe installed.
@@ -119,12 +122,12 @@ By comparing it with Caffe-DFP, one can obtain the difference. After that, one c
 Note that in the above website of Caffe_Baseline, you can find a button named "compare". With it, one can directly observe the difference. Another way is that one can download Caffe_Baseline and Caffe_DFP. With the help of SVN, it is easy to find the difference.
 
 Besides, the modification is the same for both windows and linux users, since it is indpendent from system.
-#### 2.2.3 Configuration:
+#### 2.3.3 Configuration:
 The following tools are necessary to be configured via editing CMakeList.txt, Makefile, or options in using cmake command:
 * Configure CPU_ONLY: turn it on when you test with CPU; turn it off when you test with GPU.
 * Configure BLAS library to OpenBLAS since BLAS libraries have large impact on testing time 
 
-#### 2.2.4 Compilation:
+#### 2.3.4 Compilation:
 * Linux : http://caffe.berkeleyvision.org/installation.html#compilation
 * Windows: https://github.com/BVLC/caffe/tree/windows
 ## 3. Testing with single thread on CPU
