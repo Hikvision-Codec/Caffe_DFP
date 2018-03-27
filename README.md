@@ -20,6 +20,7 @@ C:\Projects> cd Caffe_DFP
 C:\Projects\caffe> git checkout Caffe_DFP_Windows
 :: Edit any of the options inside build_win.cmd to suit your needs
 ::The default setting is for VS 2015. If you have VS 2013, please modify "MSVC_VERSION" to 13 in line 72 of "script\build_win.cmd".
+::By default, CPU_ONLY is used. If one wants to test with GPU, please refer to caffe-windows (https://github.com/pmgysel/caffe/tree/windows)
 C:\Projects\caffe> scripts\build_win.cmd
 ```
 The `build_win.cmd` script will download the dependencies, create the Visual Studio project files (or the ninja build files) and build the Release configuration. By default all the required DLLs will be copied (or hard linked when possible) next to the consuming binaries. If you wish to disable this option, you can by changing the command line option `-DCOPY_PREREQUISITES=0`. The prebuilt libraries also provide a `prependpath.bat` batch script that can temporarily modify your `PATH` environment variable to make the required DLLs available.
