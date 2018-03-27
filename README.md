@@ -58,4 +58,4 @@ Should you encounter any error please post the output of the above commands by r
 
 ## Further Details
 
-Refer to the BVLC/caffe master branch README  and BVLC/caffe windows branch READ ME for all other details such as license, citation, and so on.
+Refer to the BVLC/caffe master branch README  and BVLC/caffe windows branch README for all other details such as license, citation, and so on.
