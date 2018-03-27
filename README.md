@@ -1,144 +1,140 @@
-# caffe-DFP
-This is Caffe-DFP used in JVET-I0022(http://phenix.it-sudparis.eu/jvet/) for network inference, which is modified based on Ristretto (https://github.com/pmgysel/caffe) and Caffe (https://github.com/BVLC/caffe)
-## 1. Requirements
-The following third-party dependencies are necessary：
-* OpenBLAS, version:0.2.18
-* protobuf, version:2.5.0
-* gflags,   version:2.0
-* glog,     version:0.3.3
-* boost,    version:1.54.0
-* hdf5,     version:1.8.11
+# Windows Caffe
 
-To test with GPU:
-* CUDA 8.0
-* CUDNN, version 5.1.10
+**This is an experimental, community based branch led by Guillaume Dumont (@willyd). It is a work-in-progress.**
 
-## 2. Installation and compilation
-### 2.1 Linux Users:
-#### 2.1.1 Dependency installation:
-1) Install OpenBLAS, version:0.2.18
+This branch of Caffe ports the framework to Windows.
 
-   * Download: https://github.com/xianyi/OpenBLAS/releases
-   * Compile and Installation: https://github.com/xianyi/OpenBLAS
-   
-2) If one want to test with GPU, you need to install
-   *  CUDA 8.0, https://developer.nvidia.com/cuda-toolkit-archive
-   *  CUDNN 5.1.10, https://developer.nvidia.com/rdp/cudnn-archive
-   
-3) Install third-party dependencies
+[![Travis Build Status](https://api.travis-ci.org/BVLC/caffe.svg?branch=windows)](https://travis-ci.org/BVLC/caffe) Travis (Linux build)
 
-   The following provides two ways to install the dependency:
-   
-   *   Install from binary
-    
-        This way is easy, but may fail when compile JVET-I0022 with higher version GCC. For higher versions, refer to "Install from 
-        source code" or Section 2.2.
-    
-        * CENTOS (Test pass with gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-11)):
-      
-          ``sudo yum install protobuf-devel gflags-devel glog-devel boost-devel hdf5-devel``
-     
-        * Ubuntu (Test pass with gcc (Ubuntu 4.8.4-2ubuntu1~14.04.3) 4.8.4):
-      
-          ``sudo apt-get install libprotobuf-dev libgflags-dev libgoogle-glog-dev libhdf5-serial-dev ``
-          
-          ``sudo apt-get install --no-install-recommends libboost-all-dev ``
-        
-        * Others:
-          
-          Please refer to Section 2.2.
-        
-    *   Install from source code 
-    
-        If you have a much higher version of GCC, you need to install the above required libraries from source code or refer to Section 2.2. Install from binaries may lead to error due to compatibility.
-      
-        * protobuf
-          * Download：https://github.com/google/protobuf
-          * Installation：https://github.com/google/protobuf/blob/master/src/README.md
-        * gflags：
-          * Download：https://github.com/gflags/gflags
-          * Installation：https://github.com/gflags/gflags/blob/master/INSTALL.md
-        * glog：
-          * Download：https://github.com/google/glog
-          * Installation：https://github.com/google/glog/blob/master/INSTALL
-        * boost
-          * Download: https://github.com/boostorg/boost
-          * Installation: https://github.com/boostorg/boost/blob/master/INSTALL
-        * hdf5
-          * Download: https://www.hdfgroup.org/downloads/hdf5/
-          * Installation: section "Support" in https://www.hdfgroup.org/downloads/hdf5/          
-#### 2.1.2 Configuration:
-Editing CMakeList.txt:
-* Set option "BUILD_python" to OFF, if you do not have python installed.
-* Set option "BUILD_matlab" to OFF, if you do not have matlabb installed.
-* Set option "BUILD_python_layer" to OFF, if you do not have python installed or you do not want to build a neural network with python.
-* Set option "USE_OPENCV" to OFF, if you do not have OPENCV installed.
-* Set option "USE_LEVELDB" to OFF, if you do not have LEVELDB installed.
-* Set option "USE_LMDB" to OFF, if you do not have LMDB installed.
+[![Build status](https://ci.appveyor.com/api/projects/status/ew7cl2k1qfsnyql4/branch/windows?svg=true)](https://ci.appveyor.com/project/BVLC/caffe/branch/windows) AppVeyor (Windows build)
 
-#### 2.1.3 Compilation:
-* For testing with CPU:
+## Prebuilt binaries
 
-  ```
-  cd caffe-DFP
-  
-  mkdir build
-  
-  cd build
-  
-  cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=ON -DBLAS=Open ..
-  
-  #make -jX, in which X means how many cores are used to compile Caffe_DFP
-  make -j8
-  ```
-* For testing with GPU:
+Prebuilt binaries can be downloaded from the latest CI build on appveyor for the following configurations:
 
-  ```
-  cd caffe-DFP
-  
-  mkdir build
-  
-  cd build
-  
-  cmake -DCMAKE_BUILD_TYPE=Release -DCPU_ONLY=OFF -DBLAS=Open ..
-  
-  #make -jX, in which X means how many cores are used to compile Caffe_DFP
-  make -j8
- 
-  ```
-### 2.2 Other users:
-#### 2.2.1 Dependency installation:
-Please refer to http://caffe.berkeleyvision.org/installation.html
+- Visual Studio 2015, CPU only, Python 3.5: [Caffe Release](https://ci.appveyor.com/api/projects/BVLC/caffe/artifacts/build/caffe.zip?branch=windows&job=Environment%3A%20MSVC_VERSION%3D14%2C%20WITH_NINJA%3D0%2C%20CMAKE_CONFIG%3DRelease%2C%20CMAKE_BUILD_SHARED_LIBS%3D0%2C%20PYTHON_VERSION%3D3%2C%20WITH_CUDA%3D0), ~~[Caffe Debug](https://ci.appveyor.com/api/projects/BVLC/caffe/artifacts/build/caffe.zip?branch=windows&job=Environment%3A%20MSVC_VERSION%3D14%2C%20WITH_NINJA%3D0%2C%20CMAKE_CONFIG%3DDebug%2C%20CMAKE_BUILD_SHARED_LIBS%3D0%2C%20PYTHON_VERSION%3D3%2C%20WITH_CUDA%3D0)~~
 
-Note that BLAS library has large impacts on testing time. The BLAS library we used in JVET-I0022 is OpenBLAS 0.2.18 and cuDNN 5.1.10.
-#### 2.2.2 Source code modification:
-The baseline caffe we used: https://github.com/Hikvision-Codec/Caffe_DFP/tree/Caffe_Baseline
+- Visual Studio 2015, CUDA 8.0, Python 3.5: [Caffe Release](https://ci.appveyor.com/api/projects/BVLC/caffe/artifacts/build/caffe.zip?branch=windows&job=Environment%3A%20MSVC_VERSION%3D14%2C%20WITH_NINJA%3D1%2C%20CMAKE_CONFIG%3DRelease%2C%20CMAKE_BUILD_SHARED_LIBS%3D0%2C%20PYTHON_VERSION%3D3%2C%20WITH_CUDA%3D1)
 
-By comparing it with Caffe-DFP, one can obtain the difference. After that, one can migrate the difference to any caffe installed.
+- Visual Studio 2015, CPU only, Python 2.7: [Caffe Release](https://ci.appveyor.com/api/projects/BVLC/caffe/artifacts/build/caffe.zip?branch=windows&job=Environment%3A%20MSVC_VERSION%3D14%2C%20WITH_NINJA%3D0%2C%20CMAKE_CONFIG%3DRelease%2C%20CMAKE_BUILD_SHARED_LIBS%3D0%2C%20PYTHON_VERSION%3D2%2C%20WITH_CUDA%3D0), [Caffe Debug](https://ci.appveyor.com/api/projects/BVLC/caffe/artifacts/build/caffe.zip?branch=windows&job=Environment%3A%20MSVC_VERSION%3D14%2C%20WITH_NINJA%3D0%2C%20CMAKE_CONFIG%3DDebug%2C%20CMAKE_BUILD_SHARED_LIBS%3D0%2C%20PYTHON_VERSION%3D2%2C%20WITH_CUDA%3D0)
 
-Note that in the above website of Caffe_Baseline, you can find a button named "compare". With it, one can directly observe the difference. Another way is that one can download Caffe_Baseline and Caffe_DFP. With the help of SVN, it is easy to find the difference.
+- Visual Studio 2015,CUDA 8.0, Python 2.7: [Caffe Release](https://ci.appveyor.com/api/projects/BVLC/caffe/artifacts/build/caffe.zip?branch=windows&job=Environment%3A%20MSVC_VERSION%3D14%2C%20WITH_NINJA%3D1%2C%20CMAKE_CONFIG%3DRelease%2C%20CMAKE_BUILD_SHARED_LIBS%3D0%2C%20PYTHON_VERSION%3D2%2C%20WITH_CUDA%3D1)
 
-Besides, the modification is the same for both windows and linux users, since it is indpendent from system.
-#### 2.2.3 Configuration:
-The following tools are necessary to be configured via editing CMakeList.txt, Makefile, or options in using cmake command:
-* Configure CPU_ONLY: turn it on when you test with CPU; turn it off when you test with GPU.
-* Configure BLAS library to OpenBLAS since BLAS libraries have large impact on testing time 
+- Visual Studio 2013, CPU only, Python 2.7: [Caffe Release](https://ci.appveyor.com/api/projects/BVLC/caffe/artifacts/build/caffe.zip?branch=windows&job=Environment%3A%20MSVC_VERSION%3D12%2C%20WITH_NINJA%3D0%2C%20CMAKE_CONFIG%3DRelease%2C%20CMAKE_BUILD_SHARED_LIBS%3D0%2C%20PYTHON_VERSION%3D2%2C%20WITH_CUDA%3D0), [Caffe Debug](https://ci.appveyor.com/api/projects/BVLC/caffe/artifacts/build/caffe.zip?branch=windows&job=Environment%3A%20MSVC_VERSION%3D12%2C%20WITH_NINJA%3D0%2C%20CMAKE_CONFIG%3DDebug%2C%20CMAKE_BUILD_SHARED_LIBS%3D0%2C%20PYTHON_VERSION%3D2%2C%20WITH_CUDA%3D0)
 
-#### 2.2.4 Compilation:
-* Linux : http://caffe.berkeleyvision.org/installation.html#compilation
-* Windows: https://github.com/BVLC/caffe/tree/windows
-## 3. Testing with single thread on CPU
-For fair comparison with JEM, ensure single thread is used for OpenBLAS during testing with CPU. The following gives an example for Linux users：
+
+## Windows Setup
+
+### Requirements
+
+ - Visual Studio 2013 or 2015
+     - Technically only the VS C/C++ compiler is required (cl.exe)
+ - [CMake](https://cmake.org/) 3.4 or higher (Visual Studio and [Ninja](https://ninja-build.org/) generators are supported)
+
+### Optional Dependencies
+
+ - Python for the pycaffe interface. Anaconda Python 2.7 or 3.5 x64 (or Miniconda)
+ - Matlab for the matcaffe interface.
+ - CUDA 7.5 or 8.0 (use CUDA 8 if using Visual Studio 2015)
+ - cuDNN v5
+
+ We assume that `cmake.exe` and `python.exe` are on your `PATH`.
+
+### Configuring and Building Caffe
+
+The fastest method to get started with caffe on Windows is by executing the following commands in a `cmd` prompt (we use `C:\Projects` as a root folder for the remainder of the instructions):
+```cmd
+C:\Projects> git clone https://github.com/BVLC/caffe.git
+C:\Projects> cd caffe
+C:\Projects\caffe> git checkout windows
+:: Edit any of the options inside build_win.cmd to suit your needs
+C:\Projects\caffe> scripts\build_win.cmd
 ```
-#execute the command in a terminal before testing
+The `build_win.cmd` script will download the dependencies, create the Visual Studio project files (or the ninja build files) and build the Release configuration. By default all the required DLLs will be copied (or hard linked when possible) next to the consuming binaries. If you wish to disable this option, you can by changing the command line option `-DCOPY_PREREQUISITES=0`. The prebuilt libraries also provide a `prependpath.bat` batch script that can temporarily modify your `PATH` environment variable to make the required DLLs available.
 
-export OPENBLAS_NUM_THREADS=1
+If you have GCC installed (e.g. through MinGW), then Ninja will detect it before detecting the Visual Studio compiler, causing errors.  In this case you have several options:
 
-export GOTO_NUM_THREADS=1
+- [Pass CMake the path](https://cmake.org/Wiki/CMake_FAQ#How_do_I_use_a_different_compiler.3F) (Set `CMAKE_C_COMPILER=your/path/to/cl.exe` and `CMAKE_CXX_COMPILER=your/path/to/cl.exe`)
+- or Use the Visual Studio Generator by setting `WITH_NINJA` to 0 (This is slower, but may work even if Ninja is failing.)
+- or uninstall your copy of GCC 
 
-export OMP_NUM_THREADS=1
+The path to cl.exe is usually something like 
+`"C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/your_processor_architecture/cl.exe".`
+If you don't want to install Visual Studio, Microsoft's C/C++ compiler [can be obtained here](http://landinghub.visualstudio.com/visual-cpp-build-tools). 
+
+Below is a more complete description of some of the steps involved in building caffe.
+
+### Install the caffe dependencies
+
+By default CMake will download and extract prebuilt dependencies for your compiler and python version. It will create a folder called `libraries` containing all the required dependencies inside your build folder. Alternatively you can build them yourself by following the instructions in the [caffe-builder](https://github.com/willyd/caffe-builder) [README](https://github.com/willyd/caffe-builder/blob/master/README.md).
+
+### Use cuDNN
+
+To use cuDNN the easiest way is to copy the content of the `cuda` folder into your CUDA toolkit installation directory. For example if you installed CUDA 8.0 and downloaded cudnn-8.0-windows10-x64-v5.1.zip you should copy the content of the `cuda` directory to `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0`. Alternatively, you can define the CUDNN_ROOT cache variable to point to where you unpacked the cuDNN files e.g. `C:/Projects/caffe/cudnn-8.0-windows10-x64-v5.1/cuda`. For example the command in [scripts/build_win.cmd](scripts/build_win.cmd) would become:
 ```
-## 4. Licence
-Caffe, Ristretto and Caffe-DFP is released under the BSD 2-Clause license. The BAIR/BVLC reference models are released for unrestricted use.
+cmake -G"!CMAKE_GENERATOR!" ^
+      -DBLAS=Open ^
+      -DCMAKE_BUILD_TYPE:STRING=%CMAKE_CONFIG% ^
+      -DBUILD_SHARED_LIBS:BOOL=%CMAKE_BUILD_SHARED_LIBS% ^
+      -DBUILD_python:BOOL=%BUILD_PYTHON% ^
+      -DBUILD_python_layer:BOOL=%BUILD_PYTHON_LAYER% ^
+      -DBUILD_matlab:BOOL=%BUILD_MATLAB% ^
+      -DCPU_ONLY:BOOL=%CPU_ONLY% ^
+      -DCUDNN_ROOT=C:/Projects/caffe/cudnn-8.0-windows10-x64-v5.1/cuda ^
+      -C "%cd%\libraries\caffe-builder-config.cmake" ^
+      "%~dp0\.."
+```
 
-If you have any questions or bug reports, please do not hesitate to contact songxiaodan@hikvision.com.
+Alternatively, you can open `cmake-gui.exe` and set the variable from there and click `Generate`.
+
+### Building only for CPU
+
+If CUDA is not installed Caffe will default to a CPU_ONLY build. If you have CUDA installed but want a CPU only build you may use the CMake option `-DCPU_ONLY=1`.
+
+### Using the Python interface
+
+The recommended Python distribution is Anaconda or Miniconda. To successfully build the python interface you need to add the following conda channels:
+```
+conda config --add channels conda-forge
+conda config --add channels willyd
+```
+and install the following packages:
+```
+conda install --yes cmake ninja numpy scipy protobuf==3.1.0 six scikit-image pyyaml pydotplus graphviz
+```
+If Python is installed the default is to build the python interface and python layers. If you wish to disable the python layers or the python build use the CMake options `-DBUILD_python_layer=0` and `-DBUILD_python=0` respectively. In order to use the python interface you need to either add the `C:\Projects\caffe\python` folder to your python path of copy the `C:\Projects\caffe\python\caffe` folder to your `site_packages` folder.
+
+### Using the MATLAB interface
+
+Follow the above procedure and use `-DBUILD_matlab=ON`. Change your current directory in MATLAB to `C:\Projects\caffe\matlab` and run the following command to run the tests:
+```
+>> caffe.run_tests()
+```
+If all tests pass you can test if the classification_demo works as well. First, from `C:\Projects\caffe` run `python scripts\download_model_binary.py models\bvlc_reference_caffenet` to download the pre-trained caffemodel from the model zoo. Then change your MATLAB directory to `C:\Projects\caffe\matlab\demo` and run `classification_demo`.
+
+### Using the Ninja generator
+
+You can choose to use the Ninja generator instead of Visual Studio for faster builds. To do so, change the option `set WITH_NINJA=1` in the `build_win.cmd` script. To install Ninja you can download the executable from github or install it via conda:
+```cmd
+> conda config --add channels conda-forge
+> conda install ninja --yes
+```
+When working with ninja you don't have the Visual Studio solutions as ninja is more akin to make. An alternative is to use [Visual Studio Code](https://code.visualstudio.com) with the CMake extensions and C++ extensions.
+
+### Building a shared library
+
+CMake can be used to build a shared library instead of the default static library. To do so follow the above procedure and use `-DBUILD_SHARED_LIBS=ON`. Please note however, that some tests (more specifically the solver related tests) will fail since both the test executable and caffe library do not share static objects contained in the protobuf library.
+
+### Troubleshooting
+
+Should you encounter any error please post the output of the above commands by redirecting the output to a file and open a topic on the [caffe-users list](https://groups.google.com/forum/#!forum/caffe-users) mailing list.
+
+## Known issues
+
+- The `GPUTimer` related test cases always fail on Windows. This seems to be a difference between UNIX and Windows.
+- Shared library (DLL) build will have failing tests.
+- Shared library build only works with the Ninja generator
+
+## Further Details
+
+Refer to the BVLC/caffe master branch README for all other details such as license, citation, and so on.

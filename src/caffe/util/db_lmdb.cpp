@@ -1,6 +1,11 @@
 #ifdef USE_LMDB
 #include "caffe/util/db_lmdb.hpp"
 
+#if defined(_MSC_VER)
+#include <direct.h>
+#define mkdir(X, Y) _mkdir(X)
+#endif
+
 #include <sys/stat.h>
 
 #include <string>
@@ -32,7 +37,7 @@ void LMDB::Open(const string& source, Mode mode) {
     MDB_CHECK(rc);
   }
 #endif
-  LOG(INFO) << "Opened lmdb " << source;
+  LOG_IF(INFO, Caffe::root_solver()) << "Opened lmdb " << source;
 }
 
 LMDBCursor* LMDB::NewCursor() {

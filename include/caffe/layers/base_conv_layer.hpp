@@ -92,7 +92,7 @@ class BaseConvolutionLayer : public Layer<Dtype> {
   bool bias_term_;
   bool is_1x1_;
   bool force_nd_im2col_;
-
+  
 #ifndef ZHOULULU_MDF
   int conv_out_channels_;
   int conv_in_channels_;
@@ -169,7 +169,7 @@ class BaseConvolutionLayer : public Layer<Dtype> {
   int conv_in_channels_;
   int kernel_dim_;
 #endif
-  int conv_out_spatial_dim_;  
+  int conv_out_spatial_dim_;
   int col_offset_;
   int output_offset_;
 
